@@ -1,0 +1,18 @@
+:root{
+  --dm-color-background: 11 21 46;
+}
+
+.tw-bg-background{
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--dm-color-background)/var(--tw-bg-opacity));
+}
+
+.group:hover .tw-bg-background {
+  opacity: 1;
+  visibility: visible;
+}
+
+.group:hover .tw-bg-background {
+  opacity: 1;
+  visibility: visible;
+}
