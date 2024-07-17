@@ -1,40 +1,41 @@
-<nav class="flex justify-between items-center py-2 px-20">
+<nav class="container flex justify-between items-center py-2 px-20">
   <div class="flex items-center">
     <img src="assets/logo/eduvoc-logo.png" alt="Logo" class="w-20 h-20 rounded-full mr-4">
-    <a href="#" class="text-xl font-medium">Eduvoc</a>
-    <div class="relative ml-20 group">
-      <span class="flex items-center text-gray-600 hover:text-gray-900 font-medium hover:no-underline cursor-pointer after:transition-all after:duration-300 after:ease-in-out after:absolute after:left-0 after:right-0 after:mx-auto after:bg-blend-darken after:bottom-0 after:scale-0 group-hover:after:scale-x-110">
+    <a href="#" class="text-xl font-semibold text-slate-900">Eduvoc</a>
+    <div class="flex items-center" *ngIf="!isSearchActive">
+      <div class="relative ml-20 group">
+      <span class="flex items-center text-slate-900 hover:text-gray-900 font-medium hover:no-underline cursor-pointer after:transition-all after:duration-300 after:ease-in-out after:absolute after:left-0 after:right-0 after:mx-auto after:bg-blend-darken after:bottom-0 after:scale-0 group-hover:after:scale-x-110">
         Learn
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-6-6"></path></svg>
       </span>
-      <div class="flex flex-col tw-bg-background absolute bottom-0 translate-y-full py-4 rounded-2xl shadow-lg transition-all duration-300 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-        <a class="flex gap-2 justify-start text-left pl-5 pr-7 py-3 text-base hover:no-underline hover:bg-blue-100">
-          <img src="assets/icons/header-vocabulary.svg" class="w-6 h-6" alt="Vocabulary">
-          <span class="font-medium whitespace-nowrap">Vocabulary</span>
-        </a>
-        <a class="flex gap-2 items-center justify-start text-left pl-5 pr-7 py-3 text-base hover:no-underline hover:bg-blue-100">
-          <img src="assets/icons/header-expressions.svg" class="w-6 h-6" alt="Expressions">
-          <span class="font-medium whitespace-nowrap">Expressions</span>
-        </a>
-        <a class="flex gap-2 items-center justify-start text-left pl-5 pr-7 py-3 text-base hover:no-underline hover:bg-blue-100">
-          <img src="assets/icons/header-grammar.svg" class="w-6 h-6" alt="Grammar">
-          <span class="font-medium whitespace-nowrap">Grammar</span>
-        </a>
-        <a class="flex gap-2 items-center justify-start text-left pl-5 pr-10 py-3 text-base hover:no-underline hover:bg-blue-100">
-          <img src="assets/icons/header-pronunciation.svg" class="w-6 h-6" alt="Pronunciation">
-          <span class="font-medium whitespace-nowrap">Pronunciation</span>
-        </a>
+        <div class="flex flex-col tw-bg-background absolute bottom-0 translate-y-full py-4 rounded-2xl shadow-lg transition-all duration-300 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+          <a class="flex gap-2 justify-start text-left pl-5 pr-7 py-3 text-base hover:no-underline hover:bg-blue-100 cursor-pointer">
+            <img src="assets/icons/header-vocabulary.svg" class="w-6 h-6" alt="Vocabulary">
+            <span class="font-medium whitespace-nowrap">Vocabulary</span>
+          </a>
+          <a class="flex gap-2 items-center justify-start text-left pl-5 pr-7 py-3 text-base hover:no-underline hover:bg-blue-100 cursor-pointer">
+            <img src="assets/icons/header-expressions.svg" class="w-6 h-6" alt="Expressions">
+            <span class="font-medium whitespace-nowrap">Expressions</span>
+          </a>
+          <a class="flex gap-2 items-center justify-start text-left pl-5 pr-7 py-3 text-base hover:no-underline hover:bg-blue-100 cursor-pointer">
+            <img src="assets/icons/header-grammar.svg" class="w-6 h-6" alt="Grammar">
+            <span class="font-medium whitespace-nowrap">Grammar</span>
+          </a>
+          <a class="flex gap-2 items-center justify-start text-left pl-5 pr-10 py-3 text-base hover:no-underline hover:bg-blue-100 cursor-pointer">
+            <img src="assets/icons/header-pronunciation.svg" class="w-6 h-6" alt="Pronunciation">
+            <span class="font-medium whitespace-nowrap">Pronunciation</span>
+          </a>
+        </div>
       </div>
+      <a href="#" class="block px-7 py-2 text-slate-900 font-medium hover:text-gray-900">Mobile App</a>
+      <a href="#" class="block px-7 py-2 text-slate-900 font-medium hover:text-gray-900">Dictionary</a>
+      <a href="#" class="block px-7 py-2 text-slate-900 font-medium hover:text-gray-900">Premium</a>
     </div>
-    <a href="#" class="block px-4 py-2 text-gray-600 hover:text-gray-900">Mobile App</a>
-    <a href="#" class="block px-4 py-2 text-gray-600 hover:text-gray-900">Dictionary</a>
-    <a href="#" class="block px-4 py-2 text-gray-600 hover:text-gray-900">Premium</a>
   </div>
+
   <div class="flex items-center">
-    <input type="search" class="bg-gray-100 py-2 px-4 rounded w-40" placeholder="Search">
-    <button class="ml-2 text-gray-600 hover:text-gray-900">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-    </button>
+    <app-search-toggle (searchActiveChange)="onSearchActiveChange($event)"></app-search-toggle>
+
     <button class="ml-2 text-gray-600 hover:text-gray-900">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-_m6 0L6 21"></path></svg>
     </button>

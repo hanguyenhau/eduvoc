@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './header-home.component.scss'
 })
 export class HeaderHomeComponent {
+  isSearchActive: boolean = false;
 
+  onSearchActiveChange(event: boolean){
+     this.isSearchActive = event;
+     console.log(this.isSearchActive)
+  }
 }

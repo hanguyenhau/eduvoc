@@ -1,0 +1,19 @@
+<div class="flex items-center relative">
+  <div *ngIf="!isSearchActive" (click)="toggleSearch()"
+       class="cursor-pointer ml-4 bg-transparent hover:bg-blue-100 p-3 rounded-[15px] transition-all duration-300">
+    <img src="assets/icons/search-normal-black.svg" alt="Search Icon" class="w-6 h-6">
+  </div>
+
+  <!-- Search Box -->
+  <div class="flex items-center w-[600px] relative mr-20" *ngIf="isSearchActive">
+    <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+      <img src="assets/icons/search-normal-black.svg" alt="Search Icon" class="w-5 h-5">
+    </div>
+    <input type="text" placeholder="search" class="search-box border rounded-[50px] py-2 px-12 w-full tw-bg-background border-none focus:outline-none">
+  </div>
+
+  <div (click)="toggleSearch()" *ngIf="isSearchActive"
+       class="cursor-pointer ml-4 bg-transparent hover:bg-blue-100 p-3 rounded-[15px] transition-all duration-300">
+    <img src="assets/icons/close-circle.svg" alt="Close Icon" class="w-6 h-6">
+  </div>
+</div>

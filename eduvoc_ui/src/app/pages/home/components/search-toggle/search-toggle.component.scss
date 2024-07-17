@@ -1,0 +1,20 @@
+.tw-bg-background{
+  --tw-bg-opacity: 1;
+  background-color: rgb(235 240 247);
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+#other-sections span {
+  transition: opacity 0.3s ease;
+}
+
+#other-sections.hidden span {
+  opacity: 0;
+}
